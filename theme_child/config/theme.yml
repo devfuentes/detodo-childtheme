@@ -1,0 +1,6 @@
+parent: ZOneTheme
+name: theme_child
+display_name: child theme create by pnrm.mx
+version: 1.0
+assets:
+  use_parent_assets: true
