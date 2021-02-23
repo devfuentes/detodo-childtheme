@@ -1,0 +1,10 @@
+[{shop_name}]({shop_url})
+Hola {firstname} {lastname},
+
+{employee} quiere transferirle esta discusión.
+
+Historial de la conversación: {messages}
+
+{employee} añadido "{comment}"
+
+[{shop_name}]({shop_url}) creado por [PrestaShop™](http://www.prestashop.com/)

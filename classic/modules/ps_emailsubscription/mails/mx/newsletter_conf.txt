@@ -1,0 +1,6 @@
+[{shop_name}]({shop_url})
+Hola,
+
+Gracias por suscribirte a nuestro boletín de noticias.
+
+[{shop_name}]({shop_url}) creado por [PrestaShop™](http://www.prestashop.com/)

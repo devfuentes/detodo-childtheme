@@ -1,0 +1,10 @@
+[{shop_name}]({shop_url})
+Hola,
+
+La cobertura de stock es ahora menor que el mínimo especificado en {last_qty}.
+
+Stock disponible: {qty}
+
+You are advised to open the product's admin Product Page in order to replenish your inventory.
+
+[{shop_name}]({shop_url}) creado por [PrestaShop™](http://www.prestashop.com/)

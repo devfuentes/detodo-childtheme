@@ -1,0 +1,8 @@
+[{shop_name}]({shop_url})
+Hola {firstname} {lastname},
+
+Atención: strong> span> has recibido una nueva alerta de registro en tu Back Office.
+
+You can check for it in the "Tools" > "Logs" section of your Back Office.
+
+[{shop_name}]({shop_url}) creado por [PrestaShop™](http://www.prestashop.com/)

@@ -1,0 +1,8 @@
+[{shop_name}]({shop_url})
+Hola {firstname} {lastname},
+
+Ha recibido un nuevo mensaje de {shop_name} en relación al pedido con la referencia {order_name}.
+
+Mensaje: {message}
+
+[{shop_name}]({shop_url}) creado por [PrestaShop™](http://www.prestashop.com/)
