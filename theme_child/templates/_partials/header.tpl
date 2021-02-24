@@ -113,4 +113,3 @@
     </div>
   </div>
 {/block}
-<link rel="stylesheet" href="{$css_dir}pnrm.css" type="text/css" media="{$media}" />
