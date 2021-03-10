@@ -18053,7 +18053,8 @@ div.aeuc_footer_info {
   top: 110%;
   max-width: 100%;
   z-index: 1000;
-  background: #fff;
+  background: #363D74;
+  color:#fff;
   visibility: hidden;
   opacity: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -18206,6 +18207,7 @@ div.aeuc_footer_info {
   border: 1px solid #c7c7c7;
   border-radius: 50%;
   display: inline-block;
+  opacity:0;
 }
 .anav-top .category-item .category-subs li a:hover:before {
   border-color: #fd6282;
@@ -21293,4 +21295,54 @@ body.touch-screen .pace .pace-progress-inner {
 .link-bold{
   font-weight: 800;
   color: #363D74;
+}
+
+.anav-top .category-item .category-subs li:hover{
+  background:#FEA829;
+  color:#fff !important;
+}
+
+.anav-top .category-item .category-subs li a:hover{
+  color:#fff;
+}
+
+.adropdown::before{
+  content:"";
+  position:absolute;
+  width: 0; 
+  height: 0;
+  top:-8px;
+  left:50%;
+  transform:translateX(-50%); 
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #363D74;
+}
+
+.submenu{
+  position:absolute;
+  padding:2em 1em;
+  background:#fff;
+  width:750px;
+  height:100%;
+  top:0;
+  left:600px;
+  transform:translateX(-50%);
+  box-shadow:0 3px 6px rgba(0,0,0,0.16);
+}
+
+.submenu__title{
+  width:100%;
+  border-bottom:solid 1px;
+  padding-bottom:10px;
+  margin-bottom:10px;
+  font-size:20px;
+}
+
+.submenu__subtitle{
+  font-size:18px;
+}
+
+.submenu__list{
+  color:#1F2343;
 }
