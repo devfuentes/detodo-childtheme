@@ -32,65 +32,81 @@
   {if $category.subcategories}
     <ul class="category-subs">
       {foreach from=$category.subcategories item=subcategory}
-        <li>
+          {$lang = $subcategory.id_lang }
+          {$subcategories = Category::getChildren($subcategory.id_category, $subcategory.id_lang)}
+          {$total_categorias = count($subcategories)}
+          {if $total_categorias > 0}
+            <li class="submenu__trigger" data-id="{$subcategory.id_category}">
+          {else}
+            <li class="submenu__trigger--off">
+          {/if}
+
           <a href="{$subcategory.url}">{if $subcategory.menu_thumb}<img src="{$subcategory.menu_thumb}" alt="{$subcategory.name}" />{/if}<span>{$subcategory.name}</span></a>
         </li>
+        
+        {if $total_categorias > 0}
+          <div class="submenu" id="submenu-{$subcategory.id_category}">
+            <h2 class="submenu__title"><a href="{$subcategory.url}">{$subcategory.name}</a></h2>
+            <div class="row mt-4">
+            {* {$subcategories|print_r} *}
+            {* SUBCATEGORIAS PRIMER NIVEL *}
+            {foreach from=$subcategories item=subcategory_level1}
+            {* {$subcategory_level1 | print_r} *}
+              <div class="col-sm-12 col-md-4 mb-3">
+                <h3 class="submenu__subtitle"><a href="index.php?id_category={$subcategory_level1.id_category}&controller=category">{$subcategory_level1.name}</a></h3>
+                  <ul class="submenu__list">
+                    {$subcategory_level2 = Category::getChildren($subcategory_level1.id_category, $lang)}
+                    {foreach from=$subcategory_level2 item=level2}
+                      <li><a href="index.php?id_category={$level2.id_category}&controller=category">{$level2.name}</a></li>
+                    {/foreach}
+                  </ul>
+              </div>
+            {/foreach}
+              
+            </div>
+          </div>
+        {/if}
+
       {/foreach}
+      
     </ul>
   {/if}
 </div>
 
-<div class="submenu">
-  <h2 class="submenu__title">De todo para la familia</h2>
-  <div class="row mt-4">
-    <div class="col-sm-12 col-md-4 mb-3">
-      <h3 class="submenu__subtitle">De todo para papá</h3>
-      <ul class="submenu__list">
-        <li>Ropa</li>
-        <li>Ropa</li>
-        <li>Ropa</li>
-        <li>Ropa</li>
-      </ul>
-    </div>
 
-    <div class="col-sm-12 col-md-4 mb-3">
-      <h3 class="submenu__subtitle">De todo para papá</h3>
-      <ul class="submenu__list">
-        <li>Ropa</li>
-        <li>Ropa</li>
-        <li>Ropa</li>
-        <li>Ropa</li>
-      </ul>
-    </div>
+<script>
 
-    <div class="col-sm-12 col-md-4 mb-3">
-      <h3 class="submenu__subtitle">De todo para papá</h3>
-      <ul class="submenu__list">
-        <li>Ropa</li>
-        <li>Ropa</li>
-        <li>Ropa</li>
-        <li>Ropa</li>
-      </ul>
-    </div>
+(function() {
+   var submenuTrigger = document.getElementsByClassName("submenu__trigger");
+   var submenuContainer = document.getElementsByClassName("submenu");
+   var listItem = document.getElementsByClassName("submenu__trigger--off");
 
-    <div class="col-sm-12 col-md-4 mb-3">
-      <h3 class="submenu__subtitle">De todo para papá</h3>
-      <ul class="submenu__list">
-        <li>Ropa</li>
-        <li>Ropa</li>
-        <li>Ropa</li>
-        <li>Ropa</li>
-      </ul>
-    </div>
 
-   <div class="col-sm-12 col-md-4 mb-3">
-      <h3 class="submenu__subtitle">De todo para papá</h3>
-      <ul class="submenu__list">
-        <li>Ropa</li>
-        <li>Ropa</li>
-        <li>Ropa</li>
-        <li>Ropa</li>
-      </ul>
-    </div>
-  </div>
-</div>
+  for (var i = 0; i < submenuTrigger.length; i++) {
+    submenuTrigger[i].addEventListener('mouseover', openMegaMenu, false);
+  }
+
+  for (var i = 0; i < listItem.length; i++) {
+    listItem[i].addEventListener('mouseover', closeMegaMenu, false);
+  }
+
+  for (var i = 0; i < submenuContainer.length; i++) {
+    submenuContainer[i].addEventListener('mouseleave', closeMegaMenu, false);
+  }
+
+  function openMegaMenu(){
+    var id = this.getAttribute("data-id");
+    var submenu = document.getElementById('submenu-'+id);
+    submenu.style.display = "block";
+  }
+
+  function closeMegaMenu(){
+    var submenuClass = document.getElementsByClassName('submenu');
+    for (var i = 0; i < submenuClass.length; i++) {
+    submenuClass[i].style.display="none";
+  }
+  }
+
+
+})();
+</script>

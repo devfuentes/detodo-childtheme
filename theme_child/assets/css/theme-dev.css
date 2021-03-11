@@ -21326,10 +21326,35 @@ body.touch-screen .pace .pace-progress-inner {
   width:750px;
   height:100%;
   top:0;
-  left:600px;
+  left:580px;
   transform:translateX(-50%);
   box-shadow:0 3px 6px rgba(0,0,0,0.16);
+  display:none;
 }
+
+.submenu li, .submenu ul{
+  padding:0;
+}
+
+@media screen and (min-width:992px){
+  .submenu{
+    width:600px;
+    top:0;
+    left:530px;  
+    }
+}
+
+@media screen and (min-width:1200px){
+  .submenu{
+    width:750px;
+    top:0;
+    left:580px;  
+    }
+}
+
+
+
+
 
 .submenu__title{
   width:100%;
@@ -21345,4 +21370,24 @@ body.touch-screen .pace .pace-progress-inner {
 
 .submenu__list{
   color:#1F2343;
+}
+
+/* .category-subs .submenu__trigger:hover ~ .submenu, .submenu:hover{
+  display:block;
+} */
+
+.submenu:hover{
+  display:block;
+}
+
+.submenu__trigger{
+  position:relative;
+}
+
+.submenu__trigger::after{
+  content:">";
+  position:absolute;
+  top:50%;
+  transform:translate(-50%, -50%);
+  left:98%;
 }
